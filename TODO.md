@@ -1,10 +1,10 @@
 # TODO
 
-- Handle negative numbers
 - Data labels
 - Legends
 - Axes
 - Assertions
+- Parse command line args
 - Line graphs
 - Read input files
   - CSV

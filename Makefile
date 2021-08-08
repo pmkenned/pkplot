@@ -17,13 +17,16 @@ TARGET = pkplot
 
 .PHONY: test
 
-CFLAGS += -Wno-unused-function -Wno-unused-const-variable -Wno-unused-parameter
+#CFLAGS += -Wno-unused-function  -Wno-unused-parameter
+CFLAGS += -Wno-unused-const-variable
 #CFLAGS += -O3
 CFLAGS += -g
 all: $(BUILD_DIR)/$(TARGET)
 
+DATA ?= ./data/example1.dat
+
 run: all
-	$(BUILD_DIR)/$(TARGET)
+	$(BUILD_DIR)/$(TARGET) $(DATA)
 
 #test:
 #	$(BUILD_DIR)/test
