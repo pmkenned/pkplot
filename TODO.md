@@ -1,5 +1,6 @@
 # TODO
 
+- Comments in data files
 - Data labels
 - Legends
 - Axes

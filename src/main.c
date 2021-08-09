@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 199309L
+#include <time.h>
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 #include <stdio.h>
@@ -232,6 +234,8 @@ read_data_file(const char * filename)
     int line_num = 0;
     while (fgets(buffer, sizeof(buffer), fp)) {
         line_num++;
+        if (strcmp(buffer, "\n") == 0)
+            continue;
         size_t l = strlen(buffer);
         buffer[l-1] = ','; // replace newline with ,
         int nc = 0;
@@ -278,17 +282,21 @@ print_data_array(double_2d_array_t d)
 }
 #endif
 
+#ifdef TEST
+int main_test(int argc, char * argv[])
+#else
 int main(int argc, char * argv[])
+#endif
 {
     int w = 50, h = 50;
     img_t img = img_create(h, w);
 
-    if (argc < 2) {
-        fprintf(stderr, "usage: %s [FILE\n", argv[0]);
+    if (argc < 4 || strcmp(argv[1], "-o") != 0) {
+        fprintf(stderr, "usage: %s -o [OUT] [FILE]\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    double_2d_array_t data = read_data_file(argv[1]);
+    double_2d_array_t data = read_data_file(argv[3]);
 
     rect_t chart_rect = {
         .x = 0,
@@ -298,7 +306,32 @@ int main(int argc, char * argv[])
     };
     bar_chart(&img, data.data, data.nr, data.nc, chart_rect);
 
-    img_write(img, "foo.png");
+    img_write(img, argv[2]);
 
     return 0;
 }
+
+#ifdef TEST
+int main()
+{
+    struct timespec req = { .tv_sec = 0, .tv_nsec = 100000000 };
+
+    char * argv[] = {"./pkplot", "-o", "out.png", "./data/example1.dat", NULL};
+    int argc = NELEM(argv)-1;
+    main_test(argc, argv);
+
+    nanosleep(&req, NULL);
+
+    char * argv2[] = {"./pkplot", "-o", "out.png", "./data/example2.dat", NULL};
+    int argc2 = NELEM(argv2)-1;
+    main_test(argc2, argv2);
+
+    nanosleep(&req, NULL);
+
+    char * argv3[] = {"./pkplot", "-o", "out.png", "./data/example3.dat", NULL};
+    int argc3 = NELEM(argv3)-1;
+    main_test(argc3, argv3);
+
+    return 0;
+}
+#endif
