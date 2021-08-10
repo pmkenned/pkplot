@@ -35,48 +35,74 @@ typedef struct
     int r, g, b, a;
 } color_t;
 
-static const color_t color_trans            = {.r =   0, .g =   0, .b =   0, .a =   0};
-static const color_t color_black            = {.r =   0, .g =   0, .b =   0, .a = 255};
-static const color_t color_red              = {.r = 255, .g =   0, .b =   0, .a = 255};
-static const color_t color_green            = {.r =   0, .g = 255, .b =   0, .a = 255};
-static const color_t color_blue             = {.r =   0, .g =   0, .b = 255, .a = 255};
-static const color_t color_yellow           = {.r = 255, .g = 255, .b =   0, .a = 255};
-static const color_t color_magenta          = {.r = 255, .g =   0, .b = 255, .a = 255};
-static const color_t color_cyan             = {.r =   0, .g = 255, .b = 255, .a = 255};
-static const color_t color_white            = {.r = 255, .g = 255, .b = 255, .a = 255};
+#define COLOR_TRANS         {.r =   0, .g =   0, .b =   0, .a =   0}
+#define COLOR_BLACK         {.r =   0, .g =   0, .b =   0, .a = 255}
+#define COLOR_RED           {.r = 255, .g =   0, .b =   0, .a = 255}
+#define COLOR_GREEN         {.r =   0, .g = 255, .b =   0, .a = 255}
+#define COLOR_BLUE          {.r =   0, .g =   0, .b = 255, .a = 255}
+#define COLOR_YELLOW        {.r = 255, .g = 255, .b =   0, .a = 255}
+#define COLOR_MAGENTA       {.r = 255, .g =   0, .b = 255, .a = 255}
+#define COLOR_CYAN          {.r =   0, .g = 255, .b = 255, .a = 255}
+#define COLOR_WHITE         {.r = 255, .g = 255, .b = 255, .a = 255}
 
-static const color_t color_gray             = {.r = 128, .g = 128, .b = 128, .a = 255};
-static const color_t color_light_red        = {.r = 255, .g = 128, .b = 128, .a = 255};
-static const color_t color_light_green      = {.r = 128, .g = 255, .b = 128, .a = 255};
-static const color_t color_light_blue       = {.r = 128, .g = 128, .b = 255, .a = 255};
-static const color_t color_light_yellow     = {.r = 255, .g = 255, .b = 128, .a = 255};
-static const color_t color_light_magenta    = {.r = 255, .g = 128, .b = 255, .a = 255};
-static const color_t color_light_cyan       = {.r = 128, .g = 255, .b = 255, .a = 255};
+#define COLOR_GRAY          {.r = 128, .g = 128, .b = 128, .a = 255}
+#define COLOR_LIGHT_RED     {.r = 255, .g = 128, .b = 128, .a = 255}
+#define COLOR_LIGHT_GREEN   {.r = 128, .g = 255, .b = 128, .a = 255}
+#define COLOR_LIGHT_BLUE    {.r = 128, .g = 128, .b = 255, .a = 255}
+#define COLOR_LIGHT_YELLOW  {.r = 255, .g = 255, .b = 128, .a = 255}
+#define COLOR_LIGHT_MAGENTA {.r = 255, .g = 128, .b = 255, .a = 255}
+#define COLOR_LIGHT_CYAN    {.r = 128, .g = 255, .b = 255, .a = 255}
 
-static const color_t color_dark_gray        = {.r =  64, .g =  64, .b =  64, .a = 255};
-static const color_t color_dark_red         = {.r = 128, .g =  64, .b =  64, .a = 255};
-static const color_t color_dark_green       = {.r =  64, .g = 128, .b =  64, .a = 255};
-static const color_t color_dark_blue        = {.r =  64, .g =  64, .b = 128, .a = 255};
-static const color_t color_dark_yellow      = {.r = 128, .g = 128, .b =  64, .a = 255};
-static const color_t color_dark_magenta     = {.r = 128, .g =  64, .b = 128, .a = 255};
-static const color_t color_dark_cyan        = {.r =  64, .g = 128, .b = 128, .a = 255};
+#define COLOR_DARK_GRAY     {.r =  64, .g =  64, .b =  64, .a = 255}
+#define COLOR_DARK_RED      {.r = 128, .g =  64, .b =  64, .a = 255}
+#define COLOR_DARK_GREEN    {.r =  64, .g = 128, .b =  64, .a = 255}
+#define COLOR_DARK_BLUE     {.r =  64, .g =  64, .b = 128, .a = 255}
+#define COLOR_DARK_YELLOW   {.r = 128, .g = 128, .b =  64, .a = 255}
+#define COLOR_DARK_MAGENTA  {.r = 128, .g =  64, .b = 128, .a = 255}
+#define COLOR_DARK_CYAN     {.r =  64, .g = 128, .b = 128, .a = 255}
+
+static const color_t color_trans            = COLOR_TRANS          ;
+static const color_t color_black            = COLOR_BLACK          ;
+static const color_t color_red              = COLOR_RED            ;
+static const color_t color_green            = COLOR_GREEN          ;
+static const color_t color_blue             = COLOR_BLUE           ;
+static const color_t color_yellow           = COLOR_YELLOW         ;
+static const color_t color_magenta          = COLOR_MAGENTA        ;
+static const color_t color_cyan             = COLOR_CYAN           ;
+static const color_t color_white            = COLOR_WHITE          ;
+
+static const color_t color_gray             = COLOR_GRAY           ;
+static const color_t color_light_red        = COLOR_LIGHT_RED      ;
+static const color_t color_light_green      = COLOR_LIGHT_GREEN    ;
+static const color_t color_light_blue       = COLOR_LIGHT_BLUE     ;
+static const color_t color_light_yellow     = COLOR_LIGHT_YELLOW   ;
+static const color_t color_light_magenta    = COLOR_LIGHT_MAGENTA  ;
+static const color_t color_light_cyan       = COLOR_LIGHT_CYAN     ;
+
+static const color_t color_dark_gray        = COLOR_DARK_GRAY      ;
+static const color_t color_dark_red         = COLOR_DARK_RED       ;
+static const color_t color_dark_green       = COLOR_DARK_GREEN     ;
+static const color_t color_dark_blue        = COLOR_DARK_BLUE      ;
+static const color_t color_dark_yellow      = COLOR_DARK_YELLOW    ;
+static const color_t color_dark_magenta     = COLOR_DARK_MAGENTA   ;
+static const color_t color_dark_cyan        = COLOR_DARK_CYAN      ;
 
 static const color_t light_colors[] = {
-    color_light_red     ,
-    color_light_green   ,
-    color_light_blue    ,
-    color_light_magenta ,
-    color_cyan          ,
-    color_light_yellow  ,
+    COLOR_LIGHT_RED     ,
+    COLOR_LIGHT_GREEN   ,
+    COLOR_LIGHT_BLUE    ,
+    COLOR_LIGHT_MAGENTA ,
+    COLOR_CYAN          ,
+    COLOR_LIGHT_YELLOW  ,
 };
 
 static const color_t colors[] = {
-    color_red           ,
-    color_green         ,
-    color_blue          ,
-    color_magenta       ,
-    color_dark_cyan     ,
-    color_yellow        ,
+    COLOR_RED           ,
+    COLOR_GREEN         ,
+    COLOR_BLUE          ,
+    COLOR_MAGENTA       ,
+    COLOR_DARK_CYAN     ,
+    COLOR_YELLOW        ,
 };
 
 static const int num_colors = NELEM(colors);
